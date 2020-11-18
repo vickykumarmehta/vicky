@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body 
+
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 10000px;
+  position: cover;
+  margin: auto;
+}
+
+ figure {
+        background: #ffffff;
+        display: inline-block;
+        margin: 55px 75px 30px;
+        padding: 15px 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+        -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+        -webkit-transition: all .20s linear;
+        -moz-transition: all .20s linear;
+        transition: all .20s linear;
+        cursor: pointer;
+        position: relative;
+      }
+      figcaption {
+        color: #333;
+        font-size: 25px;
+        position: relative;
+        top: 15px;
+      }
+      figure img {
+        display: block;
+        width: 250px;
+      }
+      figure:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        transform: scale(1.2);
+        -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
+        -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
+      }
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+ {margin:25px;}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+ {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+{font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+button:hover {
+  opacity:1;
+}
+
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+
+.container {
+  padding: 16px;
+}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+hr.new1 {
+  border-top: 2px solid black;
+}
+.container {
+  position: relative;
+  font-family: Arial;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 80%; 
+}
+
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: red;
+}
+
+.topnav a {
+  float: left;
+  color: blue;
+  text-align: center;
+  padding: 14px 80px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: blue;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.fa {  
+  padding: 20px;  
+text-align: center;  
+  margin: 5px 2px;  
+  font-size: 30px;  
+  width: 50px;  
+}  
+.fa-facebook {  
+  background: #3B5998;  
+  color: white;  
+}  
+.fa-twitter {  
+  background: #55ACEE;  
+  color: white;  
+}  
+.fa-pinterest {  
+  background: #cb2027;  
+  color: white;  
+}  
+.fa-linkedin {  
+  background: #007bb5;  
+  color: white;  
+}  
+.fa-instagram {  
+  background: #125688;  
+  color: white;  
+}  
+.fa-youtube {  
+  background: #bb0000;  
+  color: white;  
+}  
+.fa-google {  
+  background: #dd4b39;  
+  color: white;  
+}  
+.fa-snapchat-ghost {  
+  background: #fffc00;  
+  color: white;  
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
+}  
+.fa-skype {  
+  background: #00aff0;  
+  color: white;  
+}  
+.fa:hover {  
+    opacity: 0.9;  
+}  
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-box {
+  background-color: white;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+ 
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-box-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="slideshow-container">
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">About</a>
+ <div class="dropdown">
+    <button class="dropbtn">services 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Consulting</a>
+      <a href="#">Stock markets</a>
+<a href="#">Mutual Funds</a>
+      <a href="#">Insurance</a>
+<a href="#">Business Loans</a>
+<a href="#">Money Markets</a>
+   </div>
+</div>
+<a href="#about">Exponent</a>
+<a href="#about">Blog</a>
+<a href="#about">Contact</a>
+
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+
+
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="v2.png" style="width:100%">
+  <div class="text"><h1 align="center"><br><br><br<b>Our motto is to balance</b></h1>
+<h1 align="center"><b> risk with growth</b></h1>
+<p align="center"><br><br><br>perfect is to balance precise typography and</p>
+<p align="center">tendy design elements</p>
+
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Contact us</button></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="v.png" style="width:100%">
+  <div class="text"><h1 align="left"><b>Better financial future for </b></h1>
+<h1 align="left"><b>nex-gen customers</b></h1>
+<p align="left">exponent is a pixel perfect theme,that is tailor made for startups and <br>business build your website swifty and easily.<br>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">LEARN MORE</button></div></p>
+
+
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="v1.png" style="width:100%">
+  <div class="text"><h1 align="left"><b>Its time to make your money</b></h1>
+<h1 align="left"><b>work for you</b></h1>
+<p align="left">exponent is a pixel perfect theme,that is tailor made for startups and</p>
+<p align="left">business build your website swifty and easily.<br>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">LEARN MORE</button></p>
+
+
+</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+
+</div>
+
+<div style="padding-left:16px">
+  
+</div>
+<br><br>
+<br>
+<br>
+<h1> <b>Some of the investment<br> services we offer<b></h1>
+<p>Over 30 high quality professionally designed pre-built<br> website concepts to choose from. Build your website<br> using a fully visual interface, using our revolutionary page<br> & header builder.<br><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">view MORE</button></p>
+
+
+
+
+<div align="center" class="flip-box" >
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <h2>Front Side</h2>
+    </div>
+    <div class="flip-box-back">
+      <h2>Back Side</h2>
+    </div>
+  </div>
+  </div>
+
+
+<svg width="200" height="180">
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="150" style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+<svg width="200" height="180">
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="150" style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+<svg width="200" height="180">
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="150" style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+
+<svg width="200" height="180">
+  <rect x="50" y="20" rx="20" ry="20" width="150" height="150" style="fill:red;stroke:black;stroke-width:5;opacity:0.5" />
+  Sorry, your browser does not support inline SVG.
+</svg>
+<div class="container">
+  <img src="v.png" alt="Nature" style="width:100%;">
+  <div class="text-block">
+    <h4>This is a truly spectacular theme! The<br>
+ custom page builder is definitely one<br> of the most intuitive and user-friendly<br> page builders I’ve ever used</h4>
+    <p>Jessica Jones</p>
+  </div>
+</div>
+<h1 align="center"><b>Recent News<b></h1>
+<p align="center">Checkout our recent yet amazing blog and get your knowledge enlightened
+
+</p>
+
+    <figure>
+      <a href="#" title="Santorini">
+        <img height="250" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="Santorini" title="Santorini" />
+      </a>
+      <figcaption>By 2030,every person in the<br> planet will have a smartphone</figcaption>
+    </figure>
+    <figure>
+      <a href="#" title="Santorini">
+        <img height="250" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="Santorini" title="Santorini" />
+      </a>
+      <figcaption>four places you need to visit<br> if you are nature lover</figcaption>
+    </figure>
+
+    <figure>
+      <a href="#" title="Santorini">
+        <img height="250" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="Santorini" title="Santorini" />
+      </a>
+      <figcaption>why you should hire a lawyer<br> to prepare your privacy policy</figcaption>
+    </figure><br>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">VIEW ALL ARTICLES</button>
+
+
+<div class="container">
+<form action="/action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+    <h1 align="center">Helping people enhance their wealth</h1>
+    <p align="center">Dont be shy,just tell us about yourself and we'll figure out the best investment<br>option for you and your projrct</p>
+    <hr>
+<label for="email"><b></b></label>
+    <input type="text" placeholder="NAME" name="email" required>
+
+    <label for="psw"><b></b></label>
+    <input type="password" placeholder="EMAIL" name="psw" required>
+
+    <label for="psw-repeat"><b></b></label>
+    <input type="password" placeholder="MESSAGE" name="psw-repeat" required>
+    
+    
+    
+   
+
+    <div class="clearfix">
+      <button type="submit" class="signupbtn">SUBMIT</button>
+    </div>
+  </div>
+</form>
+</div>
+<hr class="new1">
+
+<div>
+<h1><b>Exponent</b></h1>
+<p>Copyright © 2019 Brand Exponents.
+<br>All Rights Reserved </p>
+
+
+  
+<a href="#" class="fa fa-google"></a> 
+<a href="#" class="fa fa-twitter"></a>   
+<a href="#" class="fa fa-linkedin"></a>  
+<a href="#" class="fa fa-instagram"></a>    
+<a href="#" class="fa fa-skype"></a> 
+</div>
+<div class="vl"></div>
+</body>
+</html>
